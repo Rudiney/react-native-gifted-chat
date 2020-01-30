@@ -238,7 +238,9 @@ export default class MessageContainer<
     if (inverted) {
       this.scrollTo({ offset: 0, animated })
     } else {
-      this.props.forwardRef!.current!.scrollToEnd({ animated })
+      if (this.props.forwardRef && this.props.forwardRef.current) {
+        this.props.forwardRef.current.scrollToEnd({ animated })
+      }
     }
   }
 
